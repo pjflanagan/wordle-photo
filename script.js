@@ -27,21 +27,22 @@ async function loadWords() {
 }
 
 function makeWordColors({ dailyWord, word }) {
-  let colors = '';
+  let colors = ['b', 'b', 'b', 'b', 'b'];
   const presentLetters = {}
   for (let i = 0; i < word.length; ++i) {
     const letter = word[i];
     if (dailyWord[i] === letter) {
-      colors += 'g';
-    } else if (dailyWord.includes(letter) && !presentLetters[letter]) {
-      colors += 'y';
-      presentLetters[letter] = true;
-    } else {
-      colors += 'b';
+      colors[i] = 'g';
       presentLetters[letter] = true;
     }
   }
-  return colors;
+  for (let i = 0; i < word.length; ++i) {
+    if (dailyWord[i] !== letter && dailyWord.includes(letter) && !presentLetters[letter]) {
+      colors[i] = 'y';
+      presentLetters[letter] = true;
+    }
+  }
+  return colors.join('');
 }
 
 function makeWordColorMap(dailyWord) {
@@ -93,7 +94,7 @@ function setRowWord(row) {
     word = words[Math.floor(Math.random() * words.length)];
   }
   DRAWING_WORDS[row] = word;
-  for(let col = 0; col < 5; ++col) {
+  for (let col = 0; col < 5; ++col) {
     if (word === '') {
       $(`.tile[row="${row}"][col="${col}"]`).text('-');
     } else {
@@ -107,7 +108,7 @@ function setRowWord(row) {
 function onDailyWordSubmit() {
   const dailyWord = getDailyWord(true);
   makeWordColorMap(dailyWord);
-  for(let row = 0; row < DRAWING_WORDS.length; ++row) {
+  for (let row = 0; row < DRAWING_WORDS.length; ++row) {
     setRowWord(row);
   }
 }
