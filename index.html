@@ -10,8 +10,7 @@
   <title>Wordle Photo</title>
 
   <meta property="og:image" content="TODO:">
-  <meta property="og:image:secure_url"
-    content="TODO:">
+  <meta property="og:image:secure_url" content="TODO:">
   <meta property="og:url" content="https://www.flanny.app/wordle-picture">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Wordle">
@@ -30,9 +29,12 @@
 
 <body>
 
-  <!-- TODO: header -->
+  <div class="header">Worldle Photo: Draw a picture with your Wordle!</div>
   <div class="container">
-    <input id="word" placeholder="Daily Word"><button onclick="onDailyWordSubmit()">Enter</button>
+    <div class="word-container">
+      <input id="word" placeholder="Enter daily word">
+      <button onclick="onDailyWordSubmit()">Enter</button>
+    </div>
     <div class="board-container">
       <div class="board">
         <div class="row">
@@ -79,10 +81,7 @@
         </div>
       </div>
     </div>
-
   </div>
-
-
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"

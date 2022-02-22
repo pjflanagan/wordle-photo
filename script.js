@@ -21,7 +21,7 @@ let WORDS = [];
 // Initailizers
 
 async function loadWords() {
-  const resp = await fetch('/words.json');
+  const resp = await fetch('./words.json');
   data = await resp.json();
   WORDS = data.words;
 }
