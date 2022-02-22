@@ -37,6 +37,7 @@ function makeWordColors({ dailyWord, word }) {
     }
   }
   for (let i = 0; i < word.length; ++i) {
+    const letter = word[i];
     if (dailyWord[i] !== letter && dailyWord.includes(letter) && !presentLetters[letter]) {
       colors[i] = 'y';
       presentLetters[letter] = true;
