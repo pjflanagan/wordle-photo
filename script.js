@@ -72,7 +72,7 @@ function validateDailyWord(dailyWord, displayValidation) {
 }
 
 function getDailyWord(displayValidation = false) {
-  const dailyWord = $('#word').val();
+  const dailyWord = $('#word').val().toLowerCase();
   if (validateDailyWord(dailyWord, displayValidation)) {
     return dailyWord;
   }
